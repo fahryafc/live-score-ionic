@@ -1,17 +1,51 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+<ion-header collapse="condense">
+  <ion-toolbar color="dark">
+    <ion-title size="large">Gila Bola Banget</ion-title><br />
+  </ion-toolbar>
+  <ion-toolbar color="light">
+    <ion-title><br />All Team Premier League</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-grid>
+        <!-- <ion-row>
+          <ion-col>
+            <ion-toolbar color="light">
+              <ion-title><br />All Team Premier League</ion-title>
+            </ion-toolbar>
+          </ion-col>
+        </ion-row> -->
+        <ion-row *ngFor="let game of match.events">
+          <ion-col class="ion-text-center">
+            <ion-card>
+              <ion-card-header>
+                <img src="{{game.strTeamBadge}}" height="60" (click)="seasionPage()" expand="block">
+              </ion-card-header>
+              <ion-card-content>
+                <ion-text class="ion-text-center">
+                  <h6>{{game.strTeam}}</h6>
+                </ion-text>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
 
-  <app-explore-container name="Favorite"></app-explore-container>
+          <ion-col class="ion-text-center">
+            <ion-card>
+              <img src="{{game.strStadiumThumb}}" />
+              <ion-card-header>
+                <ion-card-subtitle>{{game.strStadium}}</ion-card-subtitle>
+                <ion-card-title>{{game.strStadiumLocation}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                {{game.strStadiumDescription}}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
 </ion-content>
